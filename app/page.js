@@ -43,20 +43,25 @@ useEffect( () => {
     <div className ="">  
 
       <h1 className = "bg-red-300 text-center text-4xl font-bold font-sans py-12">
-        Pokemon List
+        Pokemon Data
       </h1>
 
-      <div className = "bg-dark-500 mt-16 mx-12">
+      <div className = "mt-16 mx-12">
+
+        <div className = "flex flex-wrap items-center justify-center gap-5">
+        
+
         {pokemonList.map ( (eachPokemon) => ( 
           // (pokemon) => ()   **pokemon takes each arr val
           // pract use -> pokemon.name [or] pokemon.url
-          <h1 key = {eachPokemon.name}> 
+          <h1 key = {eachPokemon.name} className ="hover:bg-red-500 hover:text-white w-[30%] text-center border border-white text-2xl py-5"> 
             {eachPokemon.name}
           </h1>
           //key is used to avoid warning
         ) ) }
-
-        //pokemonList for use
+        
+        </div>
+        
       </div>
     
     </div>
