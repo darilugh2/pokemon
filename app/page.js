@@ -8,7 +8,8 @@ import { useState, useEffect} from "react";
 export default function Home() {
 
 const [pokemonList, setPokemonList] = useState([]); //initializing array state
-
+//pokemonList for use
+//setPokemonList for input
 
 //creating a function
 //Fetching Data from API
@@ -39,6 +40,25 @@ useEffect( () => {
 
 
   return (
-    <div> hello world </div>
+    <div className ="">  
+
+      <h1 className = "bg-red-300 text-center text-4xl font-bold font-sans py-12">
+        Pokemon List
+      </h1>
+
+      <div className = "bg-dark-500 mt-16 mx-12">
+        {pokemonList.map ( (eachPokemon) => ( 
+          // (pokemon) => ()   **pokemon takes each arr val
+          // pract use -> pokemon.name [or] pokemon.url
+          <h1 key = {eachPokemon.name}> 
+            {eachPokemon.name}
+          </h1>
+          //key is used to avoid warning
+        ) ) }
+
+        //pokemonList for use
+      </div>
+    
+    </div>
   );
 }
