@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useState, useEffect} from "react";
-
-
+import { useRouter } from "next/navigation";
+//useRouter -> init -> router.push()
 
 export default function Home() {
+
+const router = useRouter();
 
 const [pokemonList, setPokemonList] = useState([]); //initializing array state
 //pokemonList for use
@@ -54,7 +56,9 @@ useEffect( () => {
         {pokemonList.map ( (eachPokemon) => ( 
           // (pokemon) => ()   **pokemon takes each arr val
           // pract use -> pokemon.name [or] pokemon.url
-          <h1 key = {eachPokemon.name} className ="hover:bg-red-500 hover:text-white w-[30%] text-center border border-white text-2xl py-5"> 
+          <h1 key = {eachPokemon.name} 
+          className ="hover:bg-red-500 hover:text-white w-[30%] text-center border border-white text-2xl py-5"
+          onClick = { ( ) => router.push(`/${eachPokemon.name}`)} >  
             {eachPokemon.name}
           </h1>
           //key is used to avoid warning
